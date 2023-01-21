@@ -18,27 +18,24 @@ const App = () => {
     }
 
     const relationships = (number) => {
-        console.log(typeof number);
-        switch (number.type) {
-            case 0 : {
-                return "Friends";
-            }
-            case 1 : {
-                return "Love";
-            }
-            case 2 : {
-                return "Affection";
-            }
-            case 3 : {
-                return "Marriage";
-            }
-            case 4 : {
-                return "Enemy";
-            }
-            default : {
-                return "Sibling";
-            }
+        if(number === 1){
+            return "Friends";
         }
+        if(number === 2){
+            return "Love";
+        }
+        if(number === 3){
+            return "Affection";
+        }
+        if(number === 4){
+            return "Marriage";
+        }
+        if(number === 5){
+            return "Enemy";
+        }
+        
+        return "Siblings";
+        
     }
 
     const calculateRelationship = () => {
@@ -61,15 +58,16 @@ const App = () => {
         })
 
         let totalLength = (firstArray.length + secondArray.length - ( count * 2 )) % 6;
-        console.log(totalLength);
-        let str = relationships(totalLength % 6);
+        
+        let str = relationships(totalLength);
 
-        console.log(str);
-        console.log('i reached here');
+        setRelation(str);
     }
 
     const clearInputs = () => {
-
+        setIsCalculated(false);
+        setFirstName('');
+        setSecondName('');
     }
 
     return(
