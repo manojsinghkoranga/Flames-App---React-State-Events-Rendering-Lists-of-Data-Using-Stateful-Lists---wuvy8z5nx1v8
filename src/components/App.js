@@ -7,7 +7,7 @@ const App = () => {
     const [secondName, setSecondName] = useState('');
 
     const [isCalculated, setIsCalculated] = useState('false');
-    const [relation, setRelation] = useState('');
+    const [relationshipStatus, setRelationshipStatus] = useState('');
 
     const updateFirstName = (event) => {
         setFirstName(event.target.value);
@@ -45,7 +45,7 @@ const App = () => {
         setIsCalculated(true);
 
         if(firstArray.length === 0 || secondArray.length === 0){
-            setRelation('Please Enter valid input');
+            setRelationshipStatus('Please Enter valid input');
             return;
         }
 
@@ -61,14 +61,13 @@ const App = () => {
         
         let str = relationships(totalLength);
 
-        setRelation(str);
+        setRelationshipStatus(str);
     }
 
     const clearInputs = () => {
-        setIsCalculated(false);
         setFirstName('');
         setSecondName('');
-        setRelation('');
+        setRelationshipStatus('');
     }
 
     return(
@@ -79,7 +78,7 @@ const App = () => {
             <button data-testid="calculate_relationship" onClick={calculateRelationship}>Calculate Relationship Future</button>
             <button data-testid="clear" onClick={clearInputs}>Clear</button>
 
-            {isCalculated && <h3 data-testid="answer">{relation}</h3>}
+            {isCalculated && <h3 data-testid="answer">{relationshipStatus}</h3>}
         </div>
     )
 
