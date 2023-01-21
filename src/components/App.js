@@ -78,7 +78,7 @@ const App = () => {
             <button data-testid="calculate_relationship" onClick={calculateRelationship}>Calculate Relationship Future</button>
             <button data-testid="clear" onClick={clearInputs}>Clear</button>
 
-            {isCalculated && <h3>{relation}</h3>}
+            {isCalculated && <h3 data-testid="answer">{relation}</h3>}
         </div>
     )
 
