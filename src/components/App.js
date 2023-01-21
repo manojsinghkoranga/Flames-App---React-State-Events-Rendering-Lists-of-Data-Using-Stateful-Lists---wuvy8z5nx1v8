@@ -68,6 +68,7 @@ const App = () => {
         setIsCalculated(false);
         setFirstName('');
         setSecondName('');
+        setRelation('');
     }
 
     return(
